@@ -1,0 +1,23 @@
+#board-wrapper{
+    height: 70vh;
+    overflow: hidden;
+    padding: 0 2rem;
+}
+
+#outer-title{
+    height: 10vh;
+    padding: 1.5rem 2rem 2rem 2rem;
+}
+
+#btn{
+    border-radius: 0.4rem;
+    background-color: #0064FE;
+    float: right;
+}
+
+.outer-title-board{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2rem;
+}

@@ -1,0 +1,133 @@
+#nav-main{
+    height: 12vh;
+    background-color: #E5EFFE;
+    border-top: 4px solid #0064FE;
+    position: relative;
+}
+
+.header-inner{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+    top: 1rem;
+    overflow: hidden;
+}
+
+.center-btn{
+    width: 12rem;
+    font-weight: 500;
+    background-color: #FFFFFF;
+    color: black;
+    border: none;
+    border-radius: 0.4rem;
+    height: 2.2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.right-box{
+    margin-right: 2rem;
+    width: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.left-box{
+    margin-left: 3rem;
+    width: 200px;
+}
+
+[data-letters]:before {
+    content:attr(data-letters);
+    display:inline-block;
+    font-size:0.6em;
+    width:2.5em;
+    height:2.5em;
+    line-height:2.5em;
+    text-align:center;
+    border-radius:50%;
+    font-weight: 600;
+    background:#0064FE;
+    vertical-align:middle;
+    margin-top: -0.16 rem;
+    color:white;
+}
+
+.arrow::after{
+    display: inline-block;
+    margin-left: 0.355em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+    color: #666E8D;
+}
+
+.arrow-main::after{
+    display: inline-block;
+    margin-left: 0.355em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+    color: #A6ACC4;
+    margin-top: 0.6rem;
+}
+
+.breadcrumb-item+.breadcrumb-item::before{
+    content:var(--bs-breadcrumb-divider,"") !important;
+}
+
+.breadcrumb{
+    margin-left: 2rem;
+    justify-content: space-around !important;
+    margin-bottom: 0;
+}
+
+li:nth-child(even) {
+    background-color: white;
+    border-radius: 0.2rem 0.2rem 0 0;
+}
+
+.breadcrumb-item{
+    padding: 0.4rem 1.3rem !important;
+}
+
+#task-item{
+    display: inline-block;
+    margin-left: 0.355em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+    color: #666E8D;
+    margin-bottom: 0.3rem;
+}
+
+.nav-user-name{
+    font-weight: 500;
+    margin-top: 0.1rem;
+    font-size: 0.95rem;
+}
+
+.menu-wrapper{
+    position: absolute;
+    bottom: 0;
+    padding: 0 1rem;
+    font-weight: 600;
+}
+
+.icon-style-menu{
+    margin-right: 0.3rem;
+    padding-bottom: 0.2rem;
+
+}

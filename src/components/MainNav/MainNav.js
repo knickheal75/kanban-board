@@ -39,7 +39,7 @@ const MainNav = () => {
             </div>
             <div className="parent-div">
               <div className="child-div">
-                <MdOutlineMoreVert size="1.5em" size={"2rem"} color="5A6375"/>
+                <MdOutlineMoreVert size={"2rem"} color="5A6375"/>
               </div>
             </div>
             <div className="last-child">

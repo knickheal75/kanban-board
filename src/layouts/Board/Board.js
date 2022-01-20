@@ -1,7 +1,7 @@
 import React from 'react';
 import "./Board.css";
 import List from "../List/List";
-import { Row, Col, Button } from 'react-bootstrap';
+import { Row, Button } from 'react-bootstrap';
 
 export default class Board extends React.Component {
   constructor(props) {
@@ -95,8 +95,8 @@ export default class Board extends React.Component {
     const parsedDragInfo = JSON.parse(droppedTask)
     
     const cardsArray = parsedLS[parsedDragInfo.fromList].cards
-    const taskCard = cardsArray.find(card => card.timeId == parsedDragInfo.taskId)
-    const indexOfCard = cardsArray.findIndex(card => card.timeId == parsedDragInfo.taskId)
+    const taskCard = cardsArray.find(card => card.timeId === parsedDragInfo.taskId)
+    const indexOfCard = cardsArray.findIndex(card => card.timeId === parsedDragInfo.taskId)
     parsedLS[parsedDragInfo.fromList].cards.splice(indexOfCard, 1)
     parsedLS[listNum].cards.push({...taskCard, listNumber: parseInt(listNum)})
    

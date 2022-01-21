@@ -1,7 +1,11 @@
 import React from 'react';
 import "./CardMain.css";
 
+
 const CardDescription = (props) => {
+  useEffect(()=>{
+    console.log(props,"inside card description")
+  },[props])
   return(
     <>        
       { 

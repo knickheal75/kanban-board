@@ -9,6 +9,7 @@ export default class Board extends React.Component {
     if(localStorage.getItem('lists')) {
       const rawLS = localStorage.getItem('lists');
       const parsedLS = JSON.parse(rawLS);
+      console.log(parsedLS,"parsed local")
       this.state = { lists: parsedLS }
     } else {
       this.state = {
@@ -73,6 +74,7 @@ export default class Board extends React.Component {
         ]
       }
       localStorage.setItem('lists', JSON.stringify(this.state.lists));
+      console.log(this.state.lists,"setting local")
     }
   }
 
@@ -82,6 +84,7 @@ export default class Board extends React.Component {
       fromList: fromList
     }
     localStorage.setItem('dragInfo', JSON.stringify(dragInfo));
+    console.log(dragInfo,"setting local drag info")
   }
 
   onDragOver = (e) => {
@@ -93,6 +96,9 @@ export default class Board extends React.Component {
     const rawLS = localStorage.getItem('lists');
     const parsedLS = JSON.parse(rawLS);
     const parsedDragInfo = JSON.parse(droppedTask)
+
+    console.log(parsedLS,"drop task get") 
+    console.log(parsedDragInfo,"drag info get")
     
     const cardsArray = parsedLS[parsedDragInfo.fromList].cards
     const taskCard = cardsArray.find(card => card.timeId === parsedDragInfo.taskId)
@@ -104,7 +110,7 @@ export default class Board extends React.Component {
       lists: parsedLS
     });
     localStorage.setItem('lists', JSON.stringify(parsedLS));
-    
+    console.log(parsedLS,"final list set")
   }
 
   render(){

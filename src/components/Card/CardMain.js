@@ -17,7 +17,7 @@ const CardMain = (props) => {
                 <CardDescription 
                   logo={ <MdDescription color="#A6ACC4" size="0.94rem" className="main-card-icon"/> }
                   description={props.taskDescription}
-                  showDescription={ props.taskDescription !== "" ? true : false}
+                  showDescription={ (props.taskDescription !== "" || !props.taskDescription || props.taskDescription === null) ? true : false}
                   />
               }
 
@@ -26,7 +26,7 @@ const CardMain = (props) => {
                   logo={<FaUserAlt color="#A6ACC4" size="0.94rem" className="main-card-icon"/> }
                   responsible={props.taskResponsible}
                   initials={props.taskResponsibleInitials}
-                  showResponsible={ props.taskResponsible !== "" ? true : false}
+                  showResponsible={ props.taskResponsible !== ""  || !props.taskResponsible || props.taskResponsible === null ? true : false}
               />
               }
 

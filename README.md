@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Live Project Link
 
-
+https://quizzical-bhabha-050aae.netlify.app/
 
 ## Assignment Link
 

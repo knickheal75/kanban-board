@@ -85,8 +85,8 @@ export default class Board extends React.Component {
   onDrop = (e, listNum) => {
     const dropList = JSON.parse(JSON.stringify(this.state.lists));
     const cardsArray = dropList[this.state.dragInfo.fromList].cards
-    const taskCard = cardsArray.find(card => card.timeId == this.state.dragInfo.taskId)
-    const indexOfCard = cardsArray.findIndex(card => card.timeId == this.state.dragInfo.taskId)
+    const taskCard = cardsArray.find(card => card.timeId === parseInt(this.state.dragInfo.taskId))
+    const indexOfCard = cardsArray.findIndex(card => card.timeId === parseInt(this.state.dragInfo.taskId))
     dropList[this.state.dragInfo.fromList].cards.splice(indexOfCard, 1)
     dropList[listNum].cards.push({...taskCard, listNumber: parseInt(listNum)})
    

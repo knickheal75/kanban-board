@@ -6,12 +6,6 @@ import { Row, Button } from 'react-bootstrap';
 export default class Board extends React.Component {
   constructor(props) {
     super(props);
-    if(localStorage.getItem('lists')) {
-      const rawLS = localStorage.getItem('lists');
-      const parsedLS = JSON.parse(rawLS);
-      console.log(parsedLS,"parsed local")
-      this.state = { lists: parsedLS }
-    } else {
       this.state = {
         lists: [
           {
@@ -71,20 +65,17 @@ export default class Board extends React.Component {
             id: 3,
             cards: []
           }
-        ]
-      }
-      localStorage.setItem('lists', JSON.stringify(this.state.lists));
-      console.log(this.state.lists,"setting local")
+        ],
+        dragInfo : {}
     }
   }
 
   onDragStart = (e, fromList) => {
-    const dragInfo = {
+    const dragInformation = {
       taskId: e.currentTarget.id,
       fromList: fromList
     }
-    localStorage.setItem('dragInfo', JSON.stringify(dragInfo));
-    console.log(dragInfo,"setting local drag info")
+    this.setState({ dragInfo: dragInformation });
   }
 
   onDragOver = (e) => {
@@ -92,25 +83,16 @@ export default class Board extends React.Component {
   }
 
   onDrop = (e, listNum) => {
-    const droppedTask = localStorage.getItem('dragInfo');
-    const rawLS = localStorage.getItem('lists');
-    const parsedLS = JSON.parse(rawLS);
-    const parsedDragInfo = JSON.parse(droppedTask)
-
-    console.log(parsedLS,"drop task get") 
-    console.log(parsedDragInfo,"drag info get")
-    
-    const cardsArray = parsedLS[parsedDragInfo.fromList].cards
-    const taskCard = cardsArray.find(card => card.timeId === parsedDragInfo.taskId)
-    const indexOfCard = cardsArray.findIndex(card => card.timeId === parsedDragInfo.taskId)
-    parsedLS[parsedDragInfo.fromList].cards.splice(indexOfCard, 1)
-    parsedLS[listNum].cards.push({...taskCard, listNumber: parseInt(listNum)})
+    const dropList = JSON.parse(JSON.stringify(this.state.lists));
+    const cardsArray = dropList[this.state.dragInfo.fromList].cards
+    const taskCard = cardsArray.find(card => card.timeId == this.state.dragInfo.taskId)
+    const indexOfCard = cardsArray.findIndex(card => card.timeId == this.state.dragInfo.taskId)
+    dropList[this.state.dragInfo.fromList].cards.splice(indexOfCard, 1)
+    dropList[listNum].cards.push({...taskCard, listNumber: parseInt(listNum)})
    
     this.setState({
-      lists: parsedLS
+      lists: dropList
     });
-    localStorage.setItem('lists', JSON.stringify(parsedLS));
-    console.log(parsedLS,"final list set")
   }
 
   render(){
